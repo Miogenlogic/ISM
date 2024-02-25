@@ -22,7 +22,7 @@ pipeline {
                 script {
                     // Example: Use pytest for Python projects
                     sh 'python3 -m venv venv'
-                    sh 'source venv/bin/activate && python3 -m pip install -r requirements.txt'
+                    sh '. venv/bin/activate && python3 -m pip install -r requirements.txt'
                     sh 'pytest --cov=app test_app.py'   // Run tests and generate coverage report
                 }
             }
