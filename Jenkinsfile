@@ -32,6 +32,7 @@ pipeline {
 
     post {
         always {
+            cleanWs()
             // Clean up steps, if needed
         }
     }
