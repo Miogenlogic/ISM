@@ -8,11 +8,20 @@ pipeline {
             }
         }
 
+    stage('Install Python and Pip') {
+        steps {
+            script {
+                sh 'apt-get update && apt-get install -y python3 python3-pip'
+            }
+        }
+    }
+
+
         stage('Run Tests') {
             steps {
                 script {
                     // Example: Use pytest for Python projects
-                    sh 'pip install -r requirements.txt'  // Install dependencies if needed
+                    sh 'python3 -m pip install -r requirements.txt'  // Install dependencies if needed
                     sh 'pytest --cov=app test_app.py'   // Run tests and generate coverage report
                 }
             }
