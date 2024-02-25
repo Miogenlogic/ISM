@@ -50,14 +50,6 @@ def test_submit_file_exception_handling(mocked_process_uploaded_file, client):
     response = client.post('/', data={'file': (BytesIO(b'Some content'), 'valid.jpg')}, follow_redirects=True)
     assert b'Error processing file' in response.data
 
-def test_submit_file_large_file(client):
-    # Test handling a large file
-    # ...
-
-def test_submit_file_small_file(client):
-    # Test handling a small file
-    # ...
-
 def test_submit_file_no_file_flash_message(client):
     response = client.post('/', follow_redirects=True)
     assert b'No file selected for uploading' in response.data
