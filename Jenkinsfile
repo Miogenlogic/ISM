@@ -11,7 +11,7 @@ pipeline {
     stage('Install Python and Pip') {
         steps {
             script {
-                sh 'apt-get update && apt-get install -y python3 python3-pip'
+                sh 'apt-get update && apt-get install -y python3-venv'
             }
         }
     }
@@ -21,7 +21,8 @@ pipeline {
             steps {
                 script {
                     // Example: Use pytest for Python projects
-                    sh 'python3 -m pip install -r requirements.txt'  // Install dependencies if needed
+                    sh 'python3 -m venv venv'
+                    sh 'source venv/bin/activate && python3 -m pip install -r requirements.txt'
                     sh 'pytest --cov=app test_app.py'   // Run tests and generate coverage report
                 }
             }
