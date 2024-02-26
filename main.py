@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import pandas as pd
+#import pandas as pd
 import rasterio
 from tensorflow.keras.models import load_model
 from PIL import Image
